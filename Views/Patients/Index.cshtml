@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Medcs.Models.Patients>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2><b>Patients</b></h2>
+
+<p>
+
+    @Html.ActionLink("+Add New Patient", "Create", "Patients", null, new { @class = "btn btn-danger" })
+
+</p>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table id="patients" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmergencyContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmergencyContactPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmergencyContactAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dob)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmergencyContactName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmergencyContactPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmergencyContactAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    <a href="/Appointments/Patient/@item.Id">Appointments</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

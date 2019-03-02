@@ -1,0 +1,57 @@
+﻿@model Medcs.Models.Payments
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Payments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaidAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaidAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsReceived)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsReceived)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Method)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Method)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Appointment.Id)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-primary" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

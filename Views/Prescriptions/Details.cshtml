@@ -1,0 +1,61 @@
+﻿@model Medcs.Models.Prescriptions
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2><b>Details of the prescription</b></h2>
+
+<div>
+    @*<h4>Prescriptions</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Appointment.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inventory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Inventory.BrandName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dosage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dosage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IssuedAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IssuedAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPublic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsPublic)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

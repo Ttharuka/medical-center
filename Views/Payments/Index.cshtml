@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Medcs.Models.Payments>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2><b>Payments</b></h2>
+
+<p>
+
+    @Html.ActionLink("+Add New Payment", "Create", "Payments", null, new { @class = "btn btn-danger" })
+
+</p>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table id="patients" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaidAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsReceived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Method)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <a href="/Appointment/Details?id=@item.AppointmentId">
+                    @Html.DisplayFor(modelItem => item.Appointment.Id)
+                </a>
+                @*@Html.DisplayFor(modelItem => item.Appointment.Id)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaidAt)
+            </td>
+            <td>
+                @if (item.IsReceived == 1)
+                {
+                    <label class="success label-success">Paid</label>
+                }
+                else
+                {
+                    <label class="success label-danger">Not Paid</label>
+                }
+                @*@Html.DisplayFor(modelItem => item.IsReceived)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Method)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @*<a href="/CardPayment?id=@item.Id" class="btn btn-primary">Pay</a>*@
+
+                <a href="/Payments/Redirect?id=@item.Id" class="btn btn-primary">Pay</a> |
+                @*<a href="Payments/Redirect/@item.Id" class="btn btn-primary">Pay</a>*@
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

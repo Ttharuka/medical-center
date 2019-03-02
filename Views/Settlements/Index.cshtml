@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Medcs.Models.Settlements>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2><b>Settlements</b></h2>
+
+<p>
+    @Html.ActionLink("+Add New Settlements", "Create", "Settlements", null, new { @class = "btn btn-danger" })
+
+</p>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+<table id="settlements" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clinic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clinic.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.Phone)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

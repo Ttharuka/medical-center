@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Pay by Card</h2>
+
+@using Microsoft.Extensions.Options
+@inject IOptions<Medcs.Common.Medcs.Common.Utils.Helpers.StripeSettings> Stripe
+
+
+<form action="" method="POST">
+    <input type="hidden" name="payment_id" value="@ViewBag.Payments.Id" />
+    <article>
+        <label>Amount: @ViewBag.Payments.Amount</label>
+    </article>
+    <script src="//checkout.stripe.com/v2/checkout.js"
+            class="stripe-button"
+            data-key="@Stripe.Value.PublishableKey"
+            data-locale="auto"
+            data-description="Medical Fee"
+            data-amount="@(ViewBag.Payments.Amount * 100)" 
+            data-currency="lkr">
+    </script>
+</form>

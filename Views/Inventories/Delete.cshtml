@@ -1,0 +1,106 @@
+﻿@model Medcs.Models.Inventories
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2><b>Delete</b></h2>
+
+<h3>Are you sure you want to delete this inventory?</h3>
+<hr />
+<div>
+    @*<h4>Inventories</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GenericName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GenericName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BrandName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BrandName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiryDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExpiryDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StorageTemperature)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StorageTemperature)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Strength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Strength)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BatchNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BatchNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReorderLevel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReorderLevel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufacturedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ManufacturedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedByNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AddedByNavigation.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clinic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clinic.Address)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-primary" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

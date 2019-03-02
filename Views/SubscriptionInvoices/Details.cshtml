@@ -1,0 +1,42 @@
+﻿@model Medcs.Models.SubscriptionInvoices
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubscriptionInvoices</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IssuedAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IssuedAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaidAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PaidAt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Clinic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Clinic.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

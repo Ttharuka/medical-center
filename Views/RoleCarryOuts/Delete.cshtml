@@ -1,0 +1,33 @@
+﻿@model Medcs.Models.RoleCarryOuts
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RoleCarryOuts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Role.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleGroup)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoleGroup.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
